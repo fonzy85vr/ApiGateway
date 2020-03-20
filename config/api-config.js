@@ -6,9 +6,34 @@ module.exports = {
             url: 'http://localhost:3030'
         },
         {
-            name: 'HolidayId',
-            route: '/holidays/:id',
-            url: 'localhost:3030'
+            name: 'Hotels',
+            route: '/hotels',
+            url: 'http://localhost:3030'
+        },
+        {
+            name: 'Movements',
+            route: '/movements',
+            url: 'http://localhost:3030'
+        },
+        {
+            name: 'Movements',
+            route: '/movements',
+            url: 'http://localhost:3030'
+        },
+        {
+            name: 'Suitcases',
+            route: '/suitcases',
+            url: 'http://localhost:3030'
+        },
+        {
+            name: 'Tags',
+            route: '/tags',
+            url: 'http://localhost:3030'
+        },
+        {
+            name: 'Items',
+            route: '/items',
+            url: 'http://localhost:3030'
         }
     ]
 }
