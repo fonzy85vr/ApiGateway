@@ -11,9 +11,11 @@ for (let i = 0; i < config.applications.length; i++) {
         router.all(application.routes[r].route, (req, res, next) => {
             var method = req.method.toLowerCase();
             var path = req.path;
-            console.log(path);
+            var queryString = req.query;
+            console.log(queryString)
             if (method === 'get' || method === 'delete') {
-                api[method](path).then(function (response) {
+
+                api[method](path, { params: queryString }).then(function (response) {
                     res.send(response.data);
                 }).catch(function (error) {
                     res.send(error);
@@ -30,9 +32,10 @@ for (let i = 0; i < config.applications.length; i++) {
         router.all(application.routes[r].route + '/:id', (req, res, next) => {
             var method = req.method.toLowerCase();
             var path = req.path;
-            console.log(path);
+            var queryString = req.query;
+
             if (method === 'get' || method === 'delete') {
-                api[method](path).then(function (response) {
+                api[method](path, { params: queryString }).then(function (response) {
                     res.send(response.data);
                 }).catch(function (error) {
                     res.send(error);
