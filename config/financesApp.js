@@ -1,5 +1,5 @@
 module.exports = {
-    name: 'holiday',
+    name: 'finance',
     baseUrl: 'http://localhost:3040',
     routes: [
         {

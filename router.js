@@ -5,17 +5,18 @@ var adapter = require('./apiAdapter');
 
 for (let i = 0; i < config.applications.length; i++) {
     var application = config.applications[i];
-    var api = adapter(application.baseUrl);
 
     for (let r = 0; r < application.routes.length; r++) {
-        router.all(application.routes[r].route, (req, res, next) => {
+
+        router.all(application.routes[r].route, function (req, res, next) {
             var method = req.method.toLowerCase();
             var path = req.path;
             var queryString = req.query;
-            console.log(queryString)
-            if (method === 'get' || method === 'delete') {
+            var api = adapter(config.applications[i].baseUrl);
 
+            if (method === 'get' || method === 'delete') {
                 api[method](path, { params: queryString }).then(function (response) {
+
                     res.send(response.data);
                 }).catch(function (error) {
                     res.send(error);
